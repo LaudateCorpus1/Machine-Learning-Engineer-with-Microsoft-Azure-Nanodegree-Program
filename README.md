@@ -21,9 +21,12 @@ The custom mode - "train.py" uses the Sklearn library to train a logistic regres
 In some situations, a business might need to use a specific ML model type, or a data scientist has a  preference based on her expertise. The HyperDrive approach (creation of multiple models with different hyperparameters values) would be preferred in those situations. 
 I used an early stoping policy to limit Azure ML model development cost, preventing the algorithms from running when there are no more significant accuracy improvements.
 The best Accuracy (0.91189) was achieved with the following hyperparameters: C = 0.5, max_iter = 200. I register the model for further use.
+![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215826.png)
 
 ## AutoML
 The second method I leveraged to train the model was AutoML. After loading data, I prepare automl_config to select the highest accuracy model for the classification task. The best model was VotingEnsemble with Accuracy = 0.91675. Another great feature of the AutoML is Explanations, which gives the top features by their importance (in this model, they were: duration, nr.employed, emp.var.rate and cons.conf.id). 
+![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215850.png)
+![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215925.png)
 
 ## Pipeline comparison
 Both models provide high Accuracy of more than 0.91. However, the VotingEnsemble by AutoML model shows the highest result. The HyperDrive method might be beneficial when we are limited or know in advance which model type should be used for the specific task. It allows for fine-tuning the model by testing multiple hyperparameters combinations. However, it requires more data preparations steps. 
