@@ -36,4 +36,5 @@ Due to limited resources (available Azure credits and limited lab time), I had t
 
 ## Proof of cluster clean up
 I was using my Azure subscription and confirming cluster deletion after the end of the project.
+![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/a6eea08ffc132c9c16b10c0012a5d30b5a6c3047/Screenshot%202022-02-16%20215246.png)
  
