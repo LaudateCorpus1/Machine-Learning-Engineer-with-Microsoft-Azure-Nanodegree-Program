@@ -20,6 +20,7 @@ In this project, I was provided with a custom mode "train.py", which uses the Sk
 The custom mode - "train.py" uses the Sklearn library to train a logistic regression. There are two hyperparameters that I was tuning using the HyperDrive method: C - Inverse of regularization strength and max_iter - Maximum number of iterations to converge. The training data was uploaded using TabularDatasetFactory and split into the train (70%) and test (30%) using the train_test_split function.
 In some situations, a business might need to use a specific ML model type, or a data scientist has a  preference based on her expertise. The HyperDrive approach (creation of multiple models with different hyperparameters values) would be preferred in those situations. 
 I used the ParameterSampling, which allows defining which hyperparameters values should be tested by the HyperDrive (define the search space). I was leveraging the Random sampling approach to parameter selection - which is the least time-consuming approach. There are a few ways to further improve the HyperDrive performance, which I outlined in the Future work section. More information regarding hyperparameter tuning - https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters
+
 I used an early stoping policy to limit Azure ML model development cost, preventing the algorithms from running when there are no more significant accuracy improvements.
 The best Accuracy (0.91189) was achieved with the following hyperparameters: C = 0.5, max_iter = 200. I register the model for further use.
 ![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215826.png)
@@ -35,6 +36,7 @@ training_data=ds - training dataset
 label_column_name='y' - which variable we are trying to predict
 n_cross_validations=2 - number of cross-validation folds
 More information about the AutoML cofiguration - https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings
+
 The best model was VotingEnsemble with Accuracy = 0.91675. Another great feature of the AutoML is Explanations, which gives the top features by their importance (in this model, they were: duration, nr.employed, emp.var.rate and cons.conf.id). 
 ![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215850.png)
 ![Screenshot](https://github.com/Mnarbekov/Machine-Learning-Engineer-with-Microsoft-Azure-Nanodegree-Program/blob/7c3f9bb2fe4216a11eab8122e8f252e92589b820/Screenshot%202022-02-16%20215925.png)
